@@ -38,9 +38,9 @@ function generateGuess() {
 // 	x = 0
     
 // 	for (let i = 0; i < group1.length; i++) {
-// 		if (group1.includes(group2)) {
-//             common.push(group1[i]);
-//             console.log(common);
+// 		if (group2.includes(group1[i])) {
+//          common.push(group1[i]);
+//          console.log(common);
 // 			x++;
 // 		}
 // 	}
