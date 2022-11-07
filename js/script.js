@@ -61,19 +61,19 @@ function count() {
 
         let getResult = function (arrNum, guessNum) {
             let i = arrNum.length;
-            if (i != guessNum.length) return false;
+            if (i != guessNum.length)
+			 return false;
          
             while (i--) {
-              if (arrNum[i] !== guessNum[i]) return false;
+              if (arrNum[i] !== guessNum[i])
+			   return false;
             }
             return true;
           };
-         
-        console.log("Comparing arrNum and guessNum", getResult);
     
         if (getResult = true) {
             const resultNumber = arrNum.filter(element => guessNum.includes(element));
-            alert('I numeri indovinati sono: ' + resultNumber)
+            alert('I numeri indovinati sono: ' + resultNumber);
         }
 
 		clearInterval(idInterval);
