@@ -6,6 +6,7 @@ let counter = 5;
 let arrNum;
 let guessNum;
 let score;
+let common = [];
 
 function getRandomInteger(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -26,21 +27,25 @@ function generateGuess() {
 	const arrGuess = [];
 	for (let i = 0; i < 5; i++) {
 		do {
-			randomNumber = parseInt(prompt('inserisci i numeri che ti ricordi'));
-		} while (arrGuess.includes(randomNumber))
-		arrGuess.push(randomNumber);
+			userNumber = parseInt(prompt('inserisci i numeri che ti ricordi'));
+		} while (arrGuess.includes(userNumber))
+		arrGuess.push(userNumber);
 	}
 	return arrGuess;
 }
 
-function checkAllNum(group1, group2) {
-	score = 0
-	for (let i = 0; i < group1.length; i++) {
-		if (group1.includes(group2)) {
-			score++
-		}
-	}
-}
+// function checkAllNum(group1, group2) {
+// 	x = 0
+    
+// 	for (let i = 0; i < group1.length; i++) {
+// 		if (group1.includes(group2)) {
+//             common.push(group1[i]);
+//             console.log(common);
+// 			x++;
+// 		}
+// 	}
+//     return common;
+// }
 
 arrNum = generateNum(0, 100);
 console.log(arrNum);
@@ -54,8 +59,22 @@ function count() {
         guessNum = generateGuess();
         console.log(guessNum);
 
-        score = checkAllNum(guessNum, arrNum)
-        console.log(score);
+        let getResult = function (arrNum, guessNum) {
+            let i = arrNum.length;
+            if (i != guessNum.length) return false;
+         
+            while (i--) {
+              if (arrNum[i] !== guessNum[i]) return false;
+            }
+            return true;
+          };
+         
+        console.log("Comparing arrNum and guessNum", getResult);
+    
+        if (getResult = true) {
+            const resultNumber = arrNum.filter(element => guessNum.includes(element));
+            alert('I numeri indovinati sono: ' + resultNumber)
+        }
 
 		clearInterval(idInterval);
 	} else {
